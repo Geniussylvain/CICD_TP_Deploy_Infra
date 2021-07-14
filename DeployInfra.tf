@@ -47,13 +47,13 @@ resource "aws_subnet" "subnet-public-1" {
 }
 
 ### AZ2
-resource "aws_subnet" "subnet-public-4" {
+resource "aws_subnet" "subnet-public-2" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = "10.0.2.0/24"
   map_public_ip_on_launch = "true"
   availability_zone       = "eu-west-1b"
   tags = {
-    Name = "${var.env}-subnet-public-4"
+    Name = "${var.env}-subnet-public-2"
   }
 }
 
@@ -184,8 +184,8 @@ resource "aws_route_table_association" "public-1" {
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-4" {
-  subnet_id      = aws_subnet.subnet-public-4.id
+resource "aws_route_table_association" "public-2" {
+  subnet_id      = aws_subnet.subnet-public-2.id
   route_table_id = aws_route_table.public.id
 }
 
